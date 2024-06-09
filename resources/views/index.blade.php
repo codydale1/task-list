@@ -3,13 +3,14 @@
 @section('title', 'List of Tasks')
 
 @section('content')
-<div>
-    <a href="{{route('tasks.create')}}">Add Task</a>
-</div>
+<nav class="mb-4">
+    <a class="link" href="{{route('tasks.create')}}">Add Task</a>
+</nav class="">
 <div>
     @forelse ($tasks as $task)
     <div>
-        <a href="{{ route('tasks.show', ['task' => $task->id] )}}"> 
+        <a href="{{ route('tasks.show', ['task' => $task->id] )}}" 
+           @class(['line-through' => $task->completed])> 
             {{$task->title}}
         </a>
     </div>
